@@ -9,6 +9,8 @@ Install node.js and run the following command locally, the folder node_modules w
 
 > npm install --save-dev file-loader
 
+> npm install --save-dev csv-loader xml-loader
+
 > npm install --save lodash
 
 ## Run
