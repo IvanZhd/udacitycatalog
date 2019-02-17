@@ -2,7 +2,11 @@
 
 ## Installation
 Install node.js and run the following command locally, the folder node_modules will appear
+
 > npm install --save-dev webpack webpack-cli html-webpack-plugin
+
+> npm install --save-dev style-loader css-loader
+
 > npm install --save lodash
 
 ## Run
