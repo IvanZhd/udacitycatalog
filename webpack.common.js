@@ -9,9 +9,18 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
-    }]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: require.resolve(path.resolve(__dirname, 'src/index.js')),
+        use: 'imports-loader?this=>window'
+      },
+      {
+        test: require.resolve(path.resolve(__dirname, 'src/globals.js')),
+        use: 'exports-loader?file,parse=helpers.parse'
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -21,13 +30,16 @@ module.exports = {
     }),
     // new webpack.HotModuleReplacementPlugin()
     new webpack.NamedModulesPlugin(), // use the path to the module rather than a numerical identifier
-    new webpack.HashedModuleIdsPlugin() // some improvements with hash
+    new webpack.HashedModuleIdsPlugin(), // some improvements with hash
+    new webpack.ProvidePlugin({
+      join: ['lodash', 'join']
+    })
   ],
   output: {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    // publicPath: '/'
   },
   optimization: {
     runtimeChunk: 'single',
