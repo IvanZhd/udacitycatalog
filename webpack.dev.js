@@ -6,6 +6,6 @@ module.exports = merge(common, {
     devtool: 'inline-source-map', // include sourse map into bundle
     devServer: {
         contentBase: './dist',
-        hot: true
+        hot: false
     }
 });
