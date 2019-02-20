@@ -4,14 +4,8 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  mode: 'production', // "development" the bundle is not minified; "production" is minified
   entry: {
     app: './src/index.js',
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true
   },
   module: {
     rules: [{

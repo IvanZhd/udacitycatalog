@@ -6,11 +6,11 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "server": "node server.js",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "server": "node server.js" ,
     "dev-server": "node dev-server.js",
-    "build": "webpack"
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "IvanZhd",
@@ -27,6 +27,7 @@
     "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.5.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
   }
 }
