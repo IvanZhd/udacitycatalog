@@ -6,6 +6,7 @@ const path = require('path');
 module.exports = {
   entry: {
     app: './src/index.js',
+    another: './src/another-module.js'
   },
   module: {
     rules: [{
@@ -25,5 +26,10 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 };
