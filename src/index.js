@@ -1,34 +1,24 @@
-import printMe from './print.js';
-import './styles.css';
-import {
-  cube
-} from './math.js';
+ import _ from 'lodash';
 
+ function component() {
+   var element = document.createElement('div');
+   var button = document.createElement('button');
+   var br = document.createElement('br');
 
-if (process.env.NODE_ENV !== 'production') {
-  console.log('Looks like we are in development mode!');
-}
+   button.innerHTML = 'Click me and look at the console!';
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+   element.appendChild(br);
+   element.appendChild(button);
 
+   // Note that because a network request is involved, some indication
+   // of loading would need to be shown in a production-level site/app.
+   button.onclick = e => import( /* webpackChunkName: "print" */ './print').then(module => {
+     var print = module.default;
 
-async function getComponent() {
-  var element = document.createElement('div');
-  const {
-    default: _
-  } = await import( /* webpackChunkName: "lodash" */ 'lodash');
+     print();
+   });
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+   return element;
+ }
 
-  return element
-}
-
-getComponent().then(component => {
-  document.body.appendChild(component);
-})
-
-
-if (module.hot) {
-  module.hot.accept('./print.js', function () {
-    console.log('Accepting the updated printMe modul!');
-    printMe();
-  })
-}
+ document.body.appendChild(component());
