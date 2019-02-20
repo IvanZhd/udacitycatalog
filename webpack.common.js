@@ -6,6 +6,7 @@ const path = require('path');
 module.exports = {
   entry: {
     app: './src/index.js',
+    polyfills: './src/polyfills.js',
   },
   module: {
     rules: [{
