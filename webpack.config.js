@@ -4,10 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  mode: 'development', // "development" the bundle is not minified; "production" is minified
-  optimization: {
-    usedExports: true
-  },
+  mode: 'production', // "development" the bundle is not minified; "production" is minified
   entry: {
     app: './src/index.js',
   },
