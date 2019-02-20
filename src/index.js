@@ -10,25 +10,21 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
-function component() {
-  let element = document.createElement('pre');
-  var btn = document.createElement('button');
+async function getComponent() {
+  var element = document.createElement('div');
+  const {
+    default: _
+  } = await import( /* webpackChunkName: "lodash" */ 'lodash');
 
-  element.innerHTML = [
-    'Hello webpack!',
-    '5 cubed is equal to ' + cube(5)
-  ].join('\n\n');
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
+  return element
 }
 
-let element = component(); // Store the element to re-render on print.js changes
-document.body.appendChild(element);
+getComponent().then(component => {
+  document.body.appendChild(component);
+})
+
 
 if (module.hot) {
   module.hot.accept('./print.js', function () {
