@@ -1,0 +1,7 @@
+# NODE.js
+node_modules
+# Archive
+archive
+
+# Lock file
+*lock.json
