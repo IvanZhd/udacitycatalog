@@ -5,3 +5,4 @@ archive
 
 # Lock file
 *lock.json
+build/

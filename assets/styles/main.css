@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+    font-size: 42px;
+    color: #d814ff;
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+  color: #222;
+}
+
+.muted {
+  color: #999;
+}
